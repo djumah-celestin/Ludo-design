@@ -167,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Expanded(
                                         child: Row(
                                       children: <Widget>[
-                                        whiteContainersRoule(),
+                                        whiteGreenStarContainersRoule(),
                                         redContainersRoule(),
                                         whiteContainersRoule(),
                                       ],
@@ -281,7 +281,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ],
                                     )),
                                     Expanded(
-                                        child: couloirMilieuGaucheetDroite()),
+                                        child: Row(
+                                      children: [
+                                        whiteContainersRoule(),
+                                        whiteContainersRoule(),
+                                        whiteYellowStarContainersRoule(),
+                                        whiteContainersRoule(),
+                                        whiteContainersRoule(),
+                                        whiteContainersRoule(),
+                                      ],
+                                    )),
                                   ],
                                 )),
                             Expanded(
@@ -299,7 +308,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         whiteContainersRoule(),
                                         whiteContainersRoule(),
                                         whiteContainersRoule(),
-                                        whiteContainersRoule(),
+                                        whiteredStarContainersRoule(),
                                         whiteContainersRoule(),
                                         whiteContainersRoule(),
                                       ],
@@ -415,7 +424,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: <Widget>[
                                         whiteContainersRoule(),
                                         yellowContainersRoule(),
-                                        whiteContainersRoule(),
+                                        whiteBlueStarContainersRoule(),
                                       ],
                                     )),
                                     Expanded(
@@ -587,6 +596,62 @@ class _MyHomePageState extends State<MyHomePage> {
           border: Border.all(color: const Color.fromARGB(255, 202, 202, 202)),
           color: Colors.white),
       child: const Text(''),
+    ));
+  }
+
+  Expanded whiteGreenStarContainersRoule() {
+    return Expanded(
+        child: Container(
+      height: 50,
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color.fromARGB(255, 202, 202, 202)),
+          color: Colors.white),
+      child: const Icon(
+        Icons.star_border_purple500_outlined,
+        color: Colors.green,
+      ),
+    ));
+  }
+
+  Expanded whiteredStarContainersRoule() {
+    return Expanded(
+        child: Container(
+      height: 50,
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color.fromARGB(255, 202, 202, 202)),
+          color: Colors.white),
+      child: const Icon(
+        Icons.star_border_purple500_outlined,
+        color: Colors.red,
+      ),
+    ));
+  }
+
+  Expanded whiteYellowStarContainersRoule() {
+    return Expanded(
+        child: Container(
+      height: 50,
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color.fromARGB(255, 202, 202, 202)),
+          color: Colors.white),
+      child: const Icon(
+        Icons.star_border_purple500_outlined,
+        color: Colors.yellow,
+      ),
+    ));
+  }
+
+  Expanded whiteBlueStarContainersRoule() {
+    return Expanded(
+        child: Container(
+      height: 50,
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color.fromARGB(255, 202, 202, 202)),
+          color: Colors.white),
+      child: const Icon(
+        Icons.star_border_purple500_outlined,
+        color: Colors.blue,
+      ),
     ));
   }
 
