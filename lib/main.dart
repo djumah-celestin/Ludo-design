@@ -126,7 +126,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         padding: const EdgeInsets.all(15.0),
                                         child: Card(
                                           child: Container(
-                                            color: Colors.white,
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(50),
+                                                  bottomLeft:
+                                                      Radius.circular(50),
+                                                  bottomRight:
+                                                      Radius.circular(50),
+                                                  topRight:
+                                                      Radius.circular(50)),
+                                              color: Colors.white,
+                                            ),
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
@@ -249,7 +259,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         padding: const EdgeInsets.all(15.0),
                                         child: Card(
                                           child: Container(
-                                            color: Colors.white,
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(50),
+                                                  bottomLeft:
+                                                      Radius.circular(50),
+                                                  bottomRight:
+                                                      Radius.circular(50),
+                                                  topRight:
+                                                      Radius.circular(50)),
+                                              color: Colors.white,
+                                            ),
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
@@ -355,8 +375,73 @@ class _MyHomePageState extends State<MyHomePage> {
                                     )),
                                 Expanded(
                                     flex: 2,
-                                    child: Row(
-                                      children: [],
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                          right: 0,
+                                          left: 0,
+                                          top: 0,
+                                          child: CustomPaint(
+                                            painter: TopTrianglePainter(
+                                                strokeColor: Colors.red,
+                                                strokeWidth: 5,
+                                                paintingStyle:
+                                                    PaintingStyle.fill),
+                                            child: Container(
+                                              height: 57.5,
+                                              width: 50,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: CustomPaint(
+                                            painter: LeftTrianglePainter(
+                                                strokeColor: Colors.green,
+                                                strokeWidth: 5,
+                                                paintingStyle:
+                                                    PaintingStyle.fill),
+                                            child: Container(
+                                              height: 57.5,
+                                              width: 47,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 0,
+                                          left: 0,
+                                          bottom: 0,
+                                          child: CustomPaint(
+                                            painter: BottomTrianglePainter(
+                                                strokeColor: Colors.yellow,
+                                                strokeWidth: 5,
+                                                paintingStyle:
+                                                    PaintingStyle.fill),
+                                            child: Container(
+                                              height: 57.5,
+                                              width: 50,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: CustomPaint(
+                                            painter: RightTrianglePainter(
+                                                strokeColor: Colors.blue,
+                                                strokeWidth: 5,
+                                                paintingStyle:
+                                                    PaintingStyle.fill),
+                                            child: Container(
+                                              height: 57.5,
+                                              width: 47,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     )),
                                 Expanded(
                                     flex: 3,
@@ -423,7 +508,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         padding: const EdgeInsets.all(15.0),
                                         child: Card(
                                           child: Container(
-                                            color: Colors.white,
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(50),
+                                                  bottomLeft:
+                                                      Radius.circular(50),
+                                                  bottomRight:
+                                                      Radius.circular(50),
+                                                  topRight:
+                                                      Radius.circular(50)),
+                                              color: Colors.white,
+                                            ),
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
@@ -551,7 +646,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                         padding: const EdgeInsets.all(15.0),
                                         child: Card(
                                           child: Container(
-                                            color: Colors.white,
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(50),
+                                                  bottomLeft:
+                                                      Radius.circular(50),
+                                                  bottomRight:
+                                                      Radius.circular(50),
+                                                  topRight:
+                                                      Radius.circular(50)),
+                                              color: Colors.white,
+                                            ),
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
@@ -912,12 +1017,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class TrianglePainter extends CustomPainter {
+class BottomTrianglePainter extends CustomPainter {
   final Color strokeColor;
   final PaintingStyle paintingStyle;
   final double strokeWidth;
 
-  TrianglePainter(
+  BottomTrianglePainter(
       {this.strokeColor = Colors.black,
       this.strokeWidth = 3,
       this.paintingStyle = PaintingStyle.stroke});
@@ -941,7 +1046,115 @@ class TrianglePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(TrianglePainter oldDelegate) {
+  bool shouldRepaint(BottomTrianglePainter oldDelegate) {
+    return oldDelegate.strokeColor != strokeColor ||
+        oldDelegate.paintingStyle != paintingStyle ||
+        oldDelegate.strokeWidth != strokeWidth;
+  }
+}
+
+class TopTrianglePainter extends CustomPainter {
+  final Color strokeColor;
+  final PaintingStyle paintingStyle;
+  final double strokeWidth;
+
+  TopTrianglePainter(
+      {this.strokeColor = Colors.black,
+      this.strokeWidth = 3,
+      this.paintingStyle = PaintingStyle.stroke});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = strokeColor
+      ..strokeWidth = strokeWidth
+      ..style = paintingStyle;
+
+    canvas.drawPath(getTrianglePath(size.width, size.height), paint);
+  }
+
+  Path getTrianglePath(double x, double y) {
+    return Path()
+      ..moveTo(0, 0)
+      ..lineTo(x, 0)
+      ..lineTo(x / 2, y)
+      ..lineTo(0, y / x);
+  }
+
+  @override
+  bool shouldRepaint(TopTrianglePainter oldDelegate) {
+    return oldDelegate.strokeColor != strokeColor ||
+        oldDelegate.paintingStyle != paintingStyle ||
+        oldDelegate.strokeWidth != strokeWidth;
+  }
+}
+
+class LeftTrianglePainter extends CustomPainter {
+  final Color strokeColor;
+  final PaintingStyle paintingStyle;
+  final double strokeWidth;
+
+  LeftTrianglePainter(
+      {this.strokeColor = Colors.black,
+      this.strokeWidth = 3,
+      this.paintingStyle = PaintingStyle.stroke});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = strokeColor
+      ..strokeWidth = strokeWidth
+      ..style = paintingStyle;
+
+    canvas.drawPath(getTrianglePath(size.width, size.height), paint);
+  }
+
+  Path getTrianglePath(double x, double y) {
+    return Path()
+      ..moveTo(0, 0)
+      ..lineTo(x, y / 2)
+      ..lineTo(0, y)
+      ..lineTo(0, y / x);
+  }
+
+  @override
+  bool shouldRepaint(LeftTrianglePainter oldDelegate) {
+    return oldDelegate.strokeColor != strokeColor ||
+        oldDelegate.paintingStyle != paintingStyle ||
+        oldDelegate.strokeWidth != strokeWidth;
+  }
+}
+
+class RightTrianglePainter extends CustomPainter {
+  final Color strokeColor;
+  final PaintingStyle paintingStyle;
+  final double strokeWidth;
+
+  RightTrianglePainter(
+      {this.strokeColor = Colors.black,
+      this.strokeWidth = 3,
+      this.paintingStyle = PaintingStyle.stroke});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = strokeColor
+      ..strokeWidth = strokeWidth
+      ..style = paintingStyle;
+
+    canvas.drawPath(getTrianglePath(size.width, size.height), paint);
+  }
+
+  Path getTrianglePath(double x, double y) {
+    return Path()
+      ..moveTo(x, 0)
+      ..lineTo(0, y / 2)
+      ..lineTo(x, y)
+      ..lineTo(x, 0);
+  }
+
+  @override
+  bool shouldRepaint(RightTrianglePainter oldDelegate) {
     return oldDelegate.strokeColor != strokeColor ||
         oldDelegate.paintingStyle != paintingStyle ||
         oldDelegate.strokeWidth != strokeWidth;
